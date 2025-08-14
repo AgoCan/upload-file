@@ -5,7 +5,7 @@ server:
   mode: debug
   cors:
     origins: ["*"]
-    methods: ["PUT", "PATCH"]
+    methods: ["PUT", "PATCH", "POST", "GET", "DELETE"]
 # 数据库配置项
 db:
   type: sqlite # mysql or sqlite
@@ -26,3 +26,11 @@ log:
   maxBackups: 5
   maxAge: 10
   level: info
+# 文件上传配置
+upload:
+  upload_dir: "./uploads"
+  temp_dir: "./uploads/temp"
+  max_file_size: 10737418240  # 10GB
+  chunk_size: 5242880  # 5MB
+  allowed_types: "*"  # 允许所有类型，也可以设置为 "image/jpeg,image/png,application/pdf" 等
+  cleanup_expiry: 24  # 24小时后清理未完成的上传
